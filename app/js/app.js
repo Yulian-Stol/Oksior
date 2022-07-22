@@ -2,44 +2,7 @@
 
 document.addEventListener("DOMContentLoaded", function() {
 
-	//----------------------SLIDER-hero----------------------
-	if (document.documentElement.clientWidth < 992) {
-		var mySwiper = new Swiper('.hero__slider', {
-			slidesPerView: 1,
-			spaceBetween: 30,
-			loop: true,
-			autoplay: {
-				delay: 3000,
-			},
-			navigation: {
-				nextEl: '.hero__next',
-				prevEl: '.hero__prev',
-			},
-			breakpoints: {
-				320: {
-					slidesPerView: 1,
-					spaceBetween: 20
-				},
-			}
-		});
-	};
-
-	//----------------------HAMBURGER-----------------------
-		const hamburger = (hamburgerButton, hamburgerNav, hamburgerHeader) => {
-			const button = document.querySelector(hamburgerButton),
-						nav = document.querySelector(hamburgerNav),
-						header = document.querySelector(hamburgerHeader);
-	
-			button.addEventListener('click', (e) => {
-				button.classList.toggle('hamburger--active');
-				nav.classList.toggle('header__nav--active');
-				header.classList.toggle('header--menu');
-			});
-	
-		};
-		hamburger('.hamburger', '.header__nav', '.header');
-		
-	//----------------------MODAL-----------------------
+		//----------------------MODAL-----------------------
 		const modals = (modalSelector) => {
 			const	modal = document.querySelectorAll(modalSelector);
 
@@ -78,6 +41,166 @@ document.addEventListener("DOMContentLoaded", function() {
 
 		};
 		modals('.modal');
+
+	var wow = new WOW(
+		{
+			boxClass:     'wow',      // animated element css class (default is wow)
+			animateClass: 'animated', // animation css class (default is animated)
+			offset:       0,          // distance to the element when triggering the animation (default is 0)
+			mobile:       false,       // trigger animations on mobile devices (default is true)
+			live:         true,       // act on asynchronously loaded content (default is true)
+			callback:     function(box) {
+				// the callback is fired every time an animation is started
+				// the argument that is passed in is the DOM node being animated
+			},
+			scrollContainer: null // optional scroll container selector, otherwise use window
+		}
+	);
+	wow.init();
+
+		//------------------------------ACCORDIONS---------------------------
+		const accordionsr = (accordionSelector) => {
+			const	accordion = document.querySelectorAll(accordionSelector);
+
+			accordion.forEach(item => {
+				const accordionClick = item.querySelector('.accordionr__header')
+
+							accordionClick.addEventListener('click', (e) => {
+
+								if(!item.classList.contains('accordionr--active')) {
+									accordion.forEach(item => { 
+										item.classList.remove('accordionr--active');
+									});
+								}
+	
+								if(!item.classList.contains('accordionr--active')) {
+									item.classList.add('accordionr--active');
+									
+								} else {
+									item.classList.remove('accordionr--active');
+								}
+
+				});
+			});
+
+		};
+		accordionsr('.accordionr');
+
+		//------------------------------ACCORDIONS---------------------------
+		const accordions = (accordionSelector) => {
+			const	accordion = document.querySelectorAll(accordionSelector);
+
+			accordion.forEach(item => {
+				const accordionClick = item.querySelector('.accordion__header'),
+							accordionContent = item.querySelector('.accordion__content');
+
+				accordionClick.addEventListener('click', (e) => {
+					if(!item.classList.contains('accordion--active')) {
+
+						item.classList.add('accordion--active')
+						accordionContent.style.height = "auto"
+						var height = accordionContent.clientHeight + "px"
+						accordionContent.style.height = "0px"
+
+						setTimeout(() => {
+							accordionContent.style.height = height
+						}, 0)
+
+						} else {
+							accordionContent.style.height = "0px"
+								item.classList.remove('accordion--active')
+					}
+
+				});
+			});
+
+		};
+		accordions('.accordion');
+
+
+	//----------------------TABS-JS----------------------
+		const tabs = (headerSelector, tabSelector, contentSelector, activeClass) => {
+			const header = document.querySelector(headerSelector),
+						tab = document.querySelectorAll(tabSelector),
+						content = document.querySelectorAll(contentSelector);
+
+			if(header) {
+				if(tab) {
+					function hideTabContent() {
+						content.forEach(item => {
+							item.style.display = "none";
+						});
+		
+						tab.forEach(item => {
+							item.classList.remove(activeClass);
+						});
+					}
+		
+					function showTabContent(i = 0) {
+						content[i].style.display = "block";
+						tab[i].classList.add(activeClass);
+					}
+					hideTabContent();
+					showTabContent();
+		
+					header.addEventListener('click', (e) => {
+						const target = e.target;
+						if (target && 
+							(target.classList.contains(tabSelector.replace(/\./, '')) || 
+							target.parentNode.classList.contains(tabSelector.replace(/\./, '')))) {
+							tab.forEach((item, i) => {
+								if (target == item || target.parentNode == item) {
+									hideTabContent();
+									showTabContent(i);
+								}
+							});
+						}
+					});
+				}
+			}
+
+
+		};
+		tabs('.tabs', '.tabs__item', '.tabs__wrap', 'active');
+
+
+	//----------------------SLIDER-hero----------------------
+		if (document.documentElement.clientWidth < 992) {
+			var mySwiper = new Swiper('.hero__slider', {
+				slidesPerView: 1,
+				spaceBetween: 30,
+				loop: true,
+				autoplay: {
+					delay: 3000,
+				},
+				navigation: {
+					nextEl: '.hero__next',
+					prevEl: '.hero__prev',
+				},
+				breakpoints: {
+					320: {
+						slidesPerView: 1,
+						spaceBetween: 20
+					},
+				}
+			});
+		};
+
+	//----------------------HAMBURGER-----------------------
+		const hamburger = (hamburgerButton, hamburgerNav, hamburgerHeader) => {
+			const button = document.querySelector(hamburgerButton),
+						nav = document.querySelector(hamburgerNav),
+						header = document.querySelector(hamburgerHeader);
+	
+			button.addEventListener('click', (e) => {
+				button.classList.toggle('hamburger--active');
+				nav.classList.toggle('header__nav--active');
+				header.classList.toggle('header--menu');
+			});
+	
+		};
+		hamburger('.hamburger', '.header__nav', '.header');
+		
 
 	//----------------------FORM-----------------------
 		const forms = (formsSelector) => {
@@ -243,48 +366,6 @@ document.addEventListener("DOMContentLoaded", function() {
 		});
 		};
 		forms('.form');
-
-		//----------------------TABS-JS----------------------
-		const tabs = (headerSelector, tabSelector, contentSelector, activeClass) => {
-			const header = document.querySelector(headerSelector),
-						tab = document.querySelectorAll(tabSelector),
-						content = document.querySelectorAll(contentSelector);
-
-			function hideTabContent() {
-				content.forEach(item => {
-					item.style.display = "none";
-				});
-
-				tab.forEach(item => {
-					item.classList.remove(activeClass);
-				});
-			}
-
-			function showTabContent(i = 0) {
-				content[i].style.display = "block";
-				tab[i].classList.add(activeClass);
-			}
-
-			hideTabContent();
-			showTabContent();
-
-			header.addEventListener('click', (e) => {
-				const target = e.target;
-				if (target && 
-					(target.classList.contains(tabSelector.replace(/\./, '')) || 
-					target.parentNode.classList.contains(tabSelector.replace(/\./, '')))) {
-					tab.forEach((item, i) => {
-						if (target == item || target.parentNode == item) {
-							hideTabContent();
-							showTabContent(i);
-						}
-					});
-				}
-			});
-		};
-		tabs('.tabs', '.tabs__item', '.tabs__wrap', 'active');
-
-
 
 });
 	
