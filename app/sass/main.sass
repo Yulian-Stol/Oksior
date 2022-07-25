@@ -28,6 +28,9 @@
 	padding-bottom: 50px
 	margin-bottom: 50px
 
+	.btn--about
+		color: $accent
+
 	&__title
 		text-align: center
 		font-size: 40px
@@ -169,6 +172,12 @@
 		+r(992)
 			margin: 0 auto
 
+	&--service
+		height: 35px
+		max-width: fit-content
+		padding: 0 30px
+		margin: 0 auto
+
 html
 	scroll-behavior: smooth
 
@@ -181,7 +190,7 @@ html
 .banner
 	padding-top: 280px
 	padding-bottom: 170px
-	margin-bottom: 550px
+	margin-bottom: 525px
 	background: linear-gradient(180deg, rgba(255,255,255, 0.95) 10%, rgba(0,0,0,0) 35%, rgba(0,0,0,0) 100%), url(../img/banner.jpg)
 	background-blend-mode: hard-light
 	background-size: cover
@@ -420,7 +429,6 @@ html
 				counter-increment: b
 				content: counter(b)
 
-
 	&__wrap
 		text-align: center
 		position: relative
@@ -437,7 +445,6 @@ html
 		padding: 10px
 		border: 1px solid rgba(0,0,0,0.3)
 		border-radius: 50%
-		cursor: pointer
 		margin-bottom: 10px
 		+transition
 
@@ -569,6 +576,7 @@ html
 	&__list
 		display: flex
 		margin-bottom: 70px
+		justify-content: center
 		gap: 35px
 
 		+r(767)
@@ -577,6 +585,17 @@ html
 			gap: 15px
 
 	&__item
+		max-width: 23%
+
+		+r(1350)
+			max-width: 22%
+
+		+r(992)
+			max-width: 21%
+
+		+r(767)
+			max-width: 100%
+
 		&:nth-child(2n)
 			padding-top: 70px
 
@@ -619,7 +638,8 @@ html
 				padding-left: 0
 
 .footer
-	background: rgba(0,0,0, 0.85)
+	background: #000
+	background-image: linear-gradient(291deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.1) 35%, rgba(0,0,0,0) 14%, rgba(0,0,0,0) 70%, rgba(255,255,255,0.1) 30%, rgba(255,255,255,0.1) 100%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 100%)
 	padding-top: 50px
 	padding-bottom: 100px
 
@@ -630,8 +650,16 @@ html
 		font-size: 25px
 		margin-bottom: 40px
 
+	hr
+		width: 100%
+		border: none
+		height: 1px
+		background: rgba(255, 255, 255, 1)
+		margin: 20px 0
+
 	&__container
 		display: flex
+		justify-content: space-between
 		gap: 150px
 		color: #fff
 
@@ -1525,6 +1553,7 @@ html
 		overflow: hidden
 		color: $text
 		padding-left: 40px
+		padding-right: 40px
 		height: 0
 
 		+r(1200)
@@ -1537,7 +1566,7 @@ html
 
 		.accordion
 			&__header
-				margin-bottom: 20px
+				margin-bottom: 15px
 
 				span
 					background-color: $accent
@@ -2034,6 +2063,14 @@ html
 		+r(767)
 			padding-left: 10px
 
+		p
+			margin-bottom: 10px
+
+	&__accent
+		color: $accent
+		font-weight: 700
+		font-size: 25px
+
 	&--active
 		border-radius: 15px 15px 0 0
 		z-index: 2
@@ -2086,7 +2123,6 @@ html
 
 	&__text
 		max-width: 47%
-		padding-top: 20px
 		font-size: 20px
 
 		+r(767)
@@ -2096,7 +2132,7 @@ html
 			font-size: 18px
 
 	&__img
-		height: auto
+		height: 300px
 		border-radius: 15px
 		overflow: hidden
 		width: 100%
@@ -2181,19 +2217,27 @@ html
 		padding-bottom: 25px
 
 	&__container
-		display: flex
-		gap: 50px
-		justify-content: center
+		display: grid
+		grid-template-columns: 25% 25% 25% 25%
 		text-align: center
 
 		+r(1200)
-			flex-wrap: wrap
+			grid-template-columns: 50% 50%
+
+		+r(576)
+			grid-template-columns: 100%
 
 	&__title
 		font-size: 25px
 		font-family: $f_title
 		font-weight: 700
 		margin-bottom: 15px
+
+	&__item
+		padding: 15px
+
+		+r(576)
+			padding: 10px
 
 	&__subtitle
 		opacity: 0.8
@@ -2397,15 +2441,6 @@ html
 		+r(767)
 			flex-direction: column
 
-	&__img
-		max-width: 500px
-		border-radius: 15px
-		overflow: hidden
-		
-		img
-			width: 100%
-			border-radius: 15px
-
 	&__item
 		padding: 10px 30px
 		border-radius: 25px 25px 25px 25px
@@ -2415,21 +2450,7 @@ html
 	&__block
 
 		&_text
-			margin-bottom: 30px
 			font-size: 18px
-
-		&_title
-			font-weight: 700
-			font-size: 20px
-			margin-bottom: 15px
-			color: $accent
-
-		ul
-			list-style-type: disc
-			padding-left: 25px
-
-			li
-				margin-bottom: 10px
 
 	&__btn
 		display: flex
@@ -2568,5 +2589,239 @@ html
 
 		+r(992)
 			width: 100%
+
+//----content----
+
+.content
+
+	&__wrap
+		padding: 50px 80px
+		background: #fff
+		box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5)
+		position: relative
+		top: -100px
+		display: flex
+		flex-direction: column
+		border-radius: 25px
+		gap: 15px
+		font-size: 20px
+
+		+r(992)
+			padding: 25px 40px
+			font-size: 18px
+
+		+r(767)
+			top: -50px
+
+		+r(576)
+			padding: 10px 15px
+
+	&__title
+		font-size: 35px
+		font-weight: 700
+		font-family: $f_title
+		text-align: center
+
+		+r(992)
+			font-size: 25px
+
+	&__item
+		border-left: 5px solid $accent
+		padding: 20px
+
+		img
+			width: 20px
+			margin-right: 5px
+
+	hr
+		height: 20px
+		width: 100%
+		background: $accent
+		border: none
+
+	&__number
+		padding: 1px 8px
+		background: $accent
+		color: #fff
+		border-radius: 5px
+		margin-right: 5px
+
+	&__bold
+		font-weight: 700
+
+	&__img
+		border-radius: 15px
+		overflow: hidden
+		width: 100%
+		margin: 0 auto
+
+		img
+			width: 100%
+			height: auto
+			object-fit: cover
+
+//------vacancies-page---
+
+.vaca
+	margin-top: 50px
+	margin-bottom: 50px
+
+	+r(992)
+		margin-top: 25px
+		margin-bottom: 25px
+
+	h2
+		font-size: 45px
+		font-family: $f_title
+		font-weight: 700
+		color: $accent
+		margin-bottom: 30px
+
+		+r(992)
+			font-size: 25px
+			margin-bottom: 15px
+
+	p
+		font-size: 25px
+
+		+r(992)
+			font-size: 18px
+
+.filter
+	padding-top: 50px
+	padding-bottom: 100px
+
+	+r(992)
+		padding-top: 25px
+		padding-bottom: 50px
+
+	&__container
+		display: flex
+		gap: 100px
+
+		+r(992)
+			gap: 30px
+
+		+r(576)
+			flex-direction: column
+
+	&__select
+		display: flex
+		flex-direction: column
+		max-height: 300px
+		overflow: auto
+		gap: 10px
+
+		+r(576)
+			max-height: 250px
+
+		&_title
+			font-size: 20px
+			font-family: $f_title
+			font-weight: 700
+			margin-bottom: 10px
+
+	&__block
+		display: flex
+		flex-direction: column
+		gap: 10px
+		width: 300px
+
+		+r(576)
+			width: 100%
+
+	&__list
+		display: flex
+		flex-direction: column
+		gap: 15px
+		width: 100%
+
+	.card
+		border: 1px solid $text
+		border-radius: 15px
+		box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2)
+		width: 100%
+		background: #fff
+		max-width: 100%
+		padding: 20px 200px 20px 20px
+		position: relative
+		+transition
+
+		+r(767)
+			padding: 10px 120px 10px 10px
+
+		&:hover
+			+scale(1.02)
+
+		&__title
+			font-weight: 700
+			font-size: 20px
+			font-family: $f_title
+
+		&__subtitle
+			font-weight: 200
+			font-size: 20px
+
+		a
+			position: absolute
+			right: 25px
+			top: 50%
+			transform: translate(0, -50%)
+			border-radius: 15px
+			max-width: 150px
+			height: 50px
+			display: flex
+			gap: 10px
+			font-weight: 500
+			font-family: $fonts
+
+			+r(767)
+				right: 10px
+				max-width: 100px
+				gap: 0
+
+			svg
+				+transition
+
+			&:hover
+					svg,
+						path
+						fill: #fff
+
+	.button
+		padding: 10px
+		cursor: pointer
+		color: $text
+		text-transform: uppercase
+		font-weight: bold
+		background: $accent
+		border-radius: 8px
+		border: 2px solid $accent
+
+		&:hover
+			background: transparent
+
+	.anime
+		transform: scale(0)
+		opacity: 0
+
+	.hide
+			animation-name: hide
+			animation-duration: 0.2s
+			animation-fill-mode: forwards
+			display: none
+
+	@keyframes
+		hide
+			0%
+					visibility: visible
+					height: 200px
+			100%
+					visibility: hidden
+					width: 0
+					height: 0
+					max-width: 0
+					font-size: 0
+					margin: 0
 
 
