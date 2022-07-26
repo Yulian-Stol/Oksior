@@ -2,6 +2,42 @@
 
 document.addEventListener("DOMContentLoaded", function() {
 
+		//---------------slider--plan----------
+		var mySwiper = new Swiper('.company__slider', {
+			slidesPerView: 2,
+			spaceBetween: 50,
+			loop: true,
+			autoplay: {
+				delay: 3000,
+			},
+			navigation: {
+				nextEl: '.company__next',
+				prevEl: '.company__prev',
+			},
+			breakpoints: {
+				380: {
+					slidesPerView: 2,
+					spaceBetween: 80
+				},
+				576: {
+					slidesPerView: 3,
+					spaceBetween: 80
+				},
+				767: {
+					slidesPerView: 4,
+					spaceBetween: 100
+				},
+				992: {
+					slidesPerView: 4,
+					spaceBetween: 120
+				},
+				1200: {
+					slidesPerView: 5,
+					spaceBetween: 120
+				},
+			}
+		});
+
 		//----------------------MODAL-----------------------
 		const modals = (modalSelector) => {
 			const	modal = document.querySelectorAll(modalSelector);
