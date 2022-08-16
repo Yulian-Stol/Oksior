@@ -27,9 +27,32 @@
 	padding-top: 50px
 	padding-bottom: 50px
 	margin-bottom: 50px
+	position: relative
 
 	.btn--about
 		color: $accent
+
+	img
+		height: 200px
+		position: absolute
+		top: 20%
+		right: 25%
+		+rotate(10)
+
+		+r(1550)
+			right: 15%
+
+		+r(1200)
+			right: 5%
+
+		+r(992)
+			right: 2%
+
+		+r(800)
+			height: 100px
+
+		+r(576)
+			display: none
 
 	&__title
 		text-align: center
@@ -190,7 +213,6 @@ html
 .banner
 	padding-top: 280px
 	padding-bottom: 170px
-	margin-bottom: 500px
 	background: linear-gradient(180deg, rgba(255,255,255, 0.95) 10%, rgba(0,0,0,0) 35%, rgba(0,0,0,0) 100%), url(../img/banner.jpg)
 	background-blend-mode: hard-light
 	background-size: cover
@@ -198,27 +220,16 @@ html
 	background-position: center
 	position: relative
 
-	+r(1350)
-		margin-bottom: 680px
-
 	+r(992)
 		padding-bottom: 120px
-		margin-bottom: 800px
 
 	+r(767)
 		background: linear-gradient(rgba(255,255,255, 0.8) 0%, rgba(255,255,255, 0.8) 100%), url(../img/banner.jpg)
 		background-size: cover
 		padding-top: 280px
-		margin-bottom: 1210px
 
 	+r(576)
 		padding-top: 250px
-
-	+r(414)
-		margin-bottom: 2050px
-
-	+r(381)
-		margin-bottom: 2160px
 
 	&__content
 		margin-left: 65%
@@ -304,33 +315,29 @@ html
 	p
 		font-size: 45px
 		font-family: $f_title
+		font-weight: 300
 
 		+r(767)
 			font-size: 30px
 
 .search
-	position: absolute
-	width: 100%
-	left: 50%
-	top: 122%
-	transform: translate(-50%, -50%)
-	display: flex
-	gap: 40px
+	background: url(../img/bg-arrow2.jpg)
+	background-color: rgba(0, 0, 0, 0.9)
+	background-position: center
+	background-attachment: fixed
+	background-blend-mode: soft-light
+	border-top: 5px solid $accent
 
-	+r(1350)
-		top: 130%
+	&__container
+		display: flex
+		position: relative
+		top: -50px
+		gap: 40px
 
-	+r(992)
-		flex-direction: column
-		gap: 15px
-		top: 140%
-
-	+r(767)
-		top: 175%
-
-	+r(414)
-		top: 227%
-
+		+r(992)
+			flex-direction: column
+			gap: 15px
+			
 	&--services
 		position: static
 		left: 0
@@ -360,7 +367,7 @@ html
 	&__content
 		width: 33%
 		flex-shrink: 0
-		background: $accent
+		background: url(../img/bg-search.jpg)
 		border-radius: 15px
 		padding: 70px 30px
 		text-align: center
@@ -403,7 +410,9 @@ html
 		flex-wrap: wrap
 		justify-content: space-around
 		gap: 25px
-		background: #fff
+		background: url(../img/bg-search_list.jpg)
+		background-repeat: no-repeat
+		background-size: cover
 		border-radius: 15px
 		padding: 50px 70px
 		box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1)
@@ -423,11 +432,12 @@ html
 			font-size: 20px
 			line-height: 50px
 			color: $text
-			background-color: $accent
+			background-color: #000
 
 			&::before
 				counter-increment: b
 				content: counter(b)
+				color: #fff
 
 	&__wrap
 		text-align: center
@@ -435,7 +445,7 @@ html
 
 		p
 			font-family: $f_title
-			font-weight: 700
+			font-weight: 400
 			font-size: 20px
 			text-transform: uppercase
 
@@ -443,13 +453,9 @@ html
 		width: 150px
 		height: 150px
 		padding: 10px
-		border: 1px solid rgba(0,0,0,0.3)
+		border: 2px solid $accent
 		border-radius: 50%
 		margin-bottom: 10px
-		+transition
-
-		&:hover
-			border-color: #000
 
 		img
 			width: 100%
@@ -642,6 +648,7 @@ html
 	background-image: linear-gradient(291deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.1) 35%, rgba(0,0,0,0) 14%, rgba(0,0,0,0) 70%, rgba(255,255,255,0.1) 30%, rgba(255,255,255,0.1) 100%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 100%)
 	padding-top: 50px
 	padding-bottom: 20px
+	border-top: 4px solid $accent
 
 	h4
 		width: fit-content
@@ -660,8 +667,10 @@ html
 	&__container
 		display: flex
 		flex-direction: column
-		padding: 0 25px
 		color: #fff
+
+		+r(1200)
+			padding: 0 25px
 
 	&__wrap
 		display: flex
@@ -820,10 +829,10 @@ html
 				width: 25px
 				transform: rotate(-45deg)
 
-.border
+.active_menu
 	border: 2px solid $accent !important
 
-	+r(992)
+	+r(1200)
 		border: none !important
 
 .header
@@ -900,23 +909,23 @@ html
 			gap: 20px
 
 			+r(1200)
-				gap: 5px
+				gap: 15px
 				flex-direction: column
 
 		li
-			padding: 10px 20px
-			border-radius: 50px
-			border: 2px solid transparent
-			+transition
-
-			+r(1200)
-				padding: 5px 10px
-
-			&:hover
-				border: 2px solid $accent
-
 			a
 				color: $text
+				padding: 10px 20px
+				border-radius: 50px
+				border: 2px solid transparent
+				+transition
+
+				+r(1200)
+					padding: 5px 10px
+					border: none
+
+				&:hover
+					border: 2px solid $accent
 
 	&__logo
 		font-size: 35px
@@ -1075,7 +1084,7 @@ html
 		width: 100%
 		max-width: 500px
 		height: auto
-		padding: 60px 40px
+		padding: 60px 30px 50px 40px
 		border: 1px solid #8d8d8e
 		border-radius: 15px
 		margin: auto
@@ -1132,11 +1141,12 @@ html
 	&__item
 		position: relative
 
-		input
-			padding: 20px 40px
-			height: 65px
-			border-radius: 50px
-			border: 2px solid $accent
+	&-control
+		padding: 20px 40px !important
+		height: 65px !important
+		border-radius: 50px !important
+		border: 2px solid $accent !important
+		font-size: 16px !important
 
 	&__label
 		font-size: 16px
@@ -1148,6 +1158,11 @@ html
 		height: 40px
 		line-height: 40px
 		padding: 0 15px
+		padding: 20px 40px
+		height: 70px
+		border-radius: 50px
+		border: 2px solid $accent
+		width: 100%
 
 		&::placeholder
 			line-height: 40px
@@ -1213,6 +1228,11 @@ html
 		&_button
 			@extend .btn
 			text-transform: uppercase
+			border-radius: 250px !important
+			font-family: $f_title !important
+			font-weight: 700 !important
+			font-size: 16px !important
+			max-width: 100% !important
 
 	&__error
 		position: absolute
@@ -1332,16 +1352,28 @@ html
 		+rotate(225)
 //-----about-page----
 
+.about-bg
+	background: url(../img/bg-about.jpg)
+	background-repeat: no-repeat
+	background-size: cover
+	background-attachment: fixed
+
 .aboutMain
-	padding-top: 70px
-	padding-bottom: 70px
+	padding-top: 25px
+	padding-bottom: 200px
+	background: url(../img/bg-aboutmain.png)
+	background-position: bottom
+	background-repeat: no-repeat
+	background-size: cover
+	border-top: 4px solid $accent
+	z-index: 1
 
 	hr
 		width: 420px
-		background: rgba(0, 0, 0, 0.1)
+		background: rgba(255, 255, 255, 1)
 		border: none
 		height: 1px
-		margin-bottom: 30px
+		margin-bottom: 15px
 
 		+r(992)
 			width: 60%
@@ -1361,10 +1393,15 @@ html
 		margin: 0 auto
 		width: 60%
 		opacity: 0.8
-		margin-bottom: 70px
+		color: #fff
+		margin-bottom: 40px
 
 		+r(767)
 			margin-bottom: 35px
+
+		br
+			+r(767)
+				display: none
 
 	&__list
 		display: flex
@@ -1377,6 +1414,7 @@ html
 		overflow: hidden
 		max-width: 300px
 		box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.2)
+		background: #fff
 
 	&__text
 		padding: 20px
@@ -1398,8 +1436,13 @@ html
 			object-fit: cover
 
 .process
-	padding-top: 50px
-	padding-bottom: 50px
+	padding-top: 100px
+	position: relative
+	top: -85px
+	background: url(../img/bg-about.jpg)
+	background-repeat: no-repeat
+	background-size: cover
+	background-attachment: fixed
 
 	h3
 		text-align: center
@@ -1593,29 +1636,96 @@ html
 			&__content
 				opacity: 1
 
-//------blog-page----
-
-.type
+.team
 	margin-top: 50px
-	margin-bottom: 50px
+	margin-bottom: 25px
 
-	&__title
+	+r(767)
+		margin-top: 25px
+
+	h3
 		text-align: center
+		text-transform: uppercase
+		font-family: $f_title
 		font-size: 50px
-		font-weight: 700
-		margin-bottom: 40px
+		margin-bottom: 80px
+		color: $accent
 
 		+r(576)
 			font-size: 30px
 			margin-bottom: 20px
 
-	&__subtitle
-		text-align: center
-		opacity: 0.5
-		margin-bottom: 80px
+	&__container
+		display: flex
+		justify-content: space-around
+		background: url(../img/bg-team.jpg)
+		filter: drop-shadow(0px 0px 24px rgba(0, 0, 0, 0.25))
+		border-radius: 25px
+		background-repeat: no-repeat
+		background-size: cover
+		flex-wrap: wrap
+		padding: 70px 65px 50px 65px
+		gap: 105px
 
 		+r(767)
-			margin-bottom: 30px
+			gap: 50px
+
+	&__item
+		max-width: 230px
+		display: flex
+		align-items: center
+		flex-direction: column
+
+		&:nth-child(2n)
+			padding-top: 60px
+
+			+r(767)
+				padding-top: 0
+
+	&__img
+		margin-bottom: 20px
+		padding: 10px
+		position: relative
+
+	&__image
+		width: 140px
+		height: 140px
+		object-fit: cover
+		border-radius: 45%
+		object-position: top
+
+	&__border
+		position: absolute
+		top: -50px
+		left: -70px
+		right: 0
+		bottom: 0
+		width: 300px
+		height: 250px
+
+//------blog-page----
+
+.type
+	padding-top: 25px
+	padding-bottom: 190px
+	background: url(../img/bg-blog.png)
+	background-position: bottom
+	background-repeat: no-repeat
+	background-size: cover
+	border-top: 5px solid $accent
+	position: relative
+	z-index: 1
+
+	&__title
+		text-align: center
+		font-size: 40px
+		font-weight: 700
+		margin-bottom: 40px
+		color: $accent
+
+		+r(576)
+			font-size: 30px
+			margin-bottom: 20px
 
 	&__list
 		display: flex
@@ -1626,8 +1736,7 @@ html
 			flex-wrap: wrap
 
 	&__img
-		height: 150px
-		margin-bottom: 25px
+		width: 200px
 
 		img
 			width: 100%
@@ -1636,29 +1745,44 @@ html
 	&__size
 		display: flex
 		align-items: end
+
 		img
-			height: 90%
+			height: 85%
 
 	&__item
 		text-align: center
 
 		p
-			font-size: 20px
+			font-size: 25px
+			font-family: $f_title
+			font-weight: 400
+			color: #fff
 
 .blog
-	margin-top: 50px
+	padding-top: 150px
 	margin-bottom: 50px
+	background: url(../img/bg-about.jpg)
+	background-repeat: no-repeat
+	background-size: cover
+	background-attachment: fixed
+	position: relative
+	top: -90px
 
 	+r(576)
-		margin-top: 25px
+		margin-top: 0
 		margin-bottom: 25px
 
-	h2
-		font-size: 30px
-		font-family: $f_title
-		font-weight: 700
+	h3
 		text-align: center
+		text-transform: uppercase
+		font-family: $f_title
+		font-size: 50px
 		margin-bottom: 50px
+		color: $text
+
+		+r(576)
+			font-size: 30px
+			margin-bottom: 20px
 
 	&__list
 		display: flex
@@ -1666,11 +1790,16 @@ html
 		justify-content: center
 		gap: 50px
 
+		+r(992)
+			gap: 30px
+
 	&__item
 		max-width: 350px
 		box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.2)
 		color: $text
 		border-radius: 15px
+		background: #fff
+		z-index: 1
 		overflow: hidden
 		+transition
 
@@ -1694,12 +1823,19 @@ html
 		font-weight: 200
 		text-align: center
 
-	&__page
+	.pagination
 		display: flex
 		justify-content: center
 		align-items: center
 		padding-top: 50px
 		gap: 10px
+
+		span
+			background: #fff
+			color: #000
+			padding: 5px 10px
+			border-radius: 5px
+			border: 1px solid $accent
 
 		a
 			background: $accent
@@ -1714,14 +1850,41 @@ html
 
 //-----contact-----
 
-.region
-	padding-top: 100px
-	padding-bottom: 100px
-	background: url(../img/bg-arrow2.jpg)
-	background-color: rgba(0, 0, 0, 0.9)
+.line
+	height: 200px
+	width: 100%
+	position: absolute
+	top: -30%
+	background: url(../img/line.png)
+	background-repeat: no-repeat
+	background-size: 100%
 	background-position: center
-	background-attachment: fixed
-	background-blend-mode: soft-light
+	z-index: -1
+
+	+r(992)
+		background-size: cover
+
+	+r(767)
+		top: -20%
+
+	// &__wrap
+	// 	background: url(../img/white.svg)
+	// 	height: 400px
+	// 	width: 100%
+	// 	position: relative
+	// 	top: 50px
+	// 	background-repeat: no-repeat
+	// 	background-size: cover
+
+.region
+	padding-top: 50px
+	padding-bottom: 120px
+	background: url(../img/bg-contact.png)
+	background-position: bottom
+	background-repeat: no-repeat
+	background-size: cover
+	border-top: 5px solid $accent
+	z-index: 1
 
 	&__text
 		font-size: 25px
@@ -1736,6 +1899,7 @@ html
 	&__title
 		font-size: 30px
 		font-family: $f_title
+		text-transform: uppercase
 		font-weight: 700
 		text-align: center
 		margin-bottom: 50px
@@ -1843,12 +2007,53 @@ html
 		+r(576)
 			top: 31%
 
+	&__state
+		margin-bottom: 50px
+		display: flex
+		justify-content: space-around
+		flex-wrap: wrap
+		gap: 40px
+
+		p
+			color: #fff
+
+	&__img
+		width: 150px
+		height: 150px
+		padding: 10px
+		border-radius: 50%
+		border: 2px solid $accent
+		margin-bottom: 20px
+
+		+r(767)
+			width: 120px
+			height: 120px
+
+		img
+			width: 100%
+			height: 100%
+			object-fit: cover
+			border-radius: 50%
+
+	&__content
+		display: flex
+		justify-content: center
+		text-transform: uppercase
+		font-size: 22px
+		font-family: $f_title
+		font-weight: 400
+
 .contacts
-	padding-top: 50px
+	padding-top: 130px
 	margin-bottom: 50px
+	position: relative
+	top: -90px
+	background: url(../img/bg-about.jpg)
+	background-repeat: no-repeat
+	background-size: cover
+	background-attachment: fixed
 
 	+r(576)
-		padding-top: 25px
 		margin-bottom: 25px
 
 	.active
@@ -1910,6 +2115,7 @@ html
 		cursor: pointer
 		width: 400px
 		position: relative
+		background: #fff
 
 		&:first-child
 			border-radius: 25px 0 0 0
@@ -1973,37 +2179,51 @@ html
 		font-size: 30px
 		font-family: $f_title
 		font-weight: 700
+		margin-bottom: 30px
 
 //---service--page---
 
 .services
+	padding-top: 100px
+	position: relative
+	background: url(../img/bg-main.jpg)
+	background-repeat: no-repeat
+	background-size: cover
+	background-attachment: fixed
+	top: -90px
 
 	&__list
 		display: flex
 		flex-wrap: wrap
-		gap: 30px
+		justify-content: space-around
+		gap: 10px
 		margin-bottom: 50px
 
 		+r(767)
 			justify-content: center
 
+		&:last-child
+			margin-bottom: 0
+
 	&__item
 		width: 100%
-		height: 100px
+		height: 150px
 		border-radius: 15px
 		position: relative
-		max-width: 300px
+		max-width: 315px
+		box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5)
 		+transition
 
 		+r(767)
 			max-width: 100%
 
 		&:hover
-			+scale(1.02)
+			box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5)
 
 	&__block
 		display: flex
 		align-items: end
+		z-index: 1
 		gap: 30px
 		margin-bottom: 30px
 
@@ -2012,8 +2232,11 @@ html
 			align-items: center
 
 	&__img
-		max-width: 300px
+		max-width: 450px
+		width: 100%
+		height: 250px
 		border-radius: 15px
+		z-index: 1
 		overflow: hidden
 
 		+r(767)
@@ -2021,6 +2244,9 @@ html
 
 		img
 			width: 100%
+			height: 100%
+			object-fit: cover
+			object-position: bottom
 
 	&__content
 		&_title
@@ -2047,37 +2273,41 @@ html
 		cursor: pointer
 		padding: 10px 20px
 		border: 1px solid rgba(0,0,0, 0.5)
-		border-radius: 15px
+		background: #fff
+		border-radius: 10px
 		font-weight: 700
 		font-family: $f_title
+		height: 100%
+		+transition
+
+		&:hover
+			color: $accent
+
+			span
+				border-color: $accent
+
+				p
+					border-color: $accent
 
 		span
 			+transition
 			margin-left: auto
-			position: relative
-			width: 32px
-			height: 32px
-			border-radius: 50%
-			background-color: $accent
-			border-color: $accent
+			width: 45px
+			height: 30px
+			border-radius: 5px
+			border: 1px solid #000
+			display: flex
+			align-items: center
+			justify-content: center
 
-			&::before,
-			&::after
-				+transition
-				content: ''
-				position: absolute
-				top: 50%
-				left: 50%
-				transform: translate(-50%, -50%)
-				background-color: #fff
-
-			&::before
+			p
+				display: block
+				border-right: 1px solid #000
+				border-bottom: 1px solid #000
 				width: 10px
-				height: 1px
-			
-			&::after
 				height: 10px
-				width: 1px
+				+transition
+				+rotate(45)
 
 	&__content
 		overflow: hidden
@@ -2085,7 +2315,6 @@ html
 		text-align: center
 		padding-left: 20px
 		background: #fff
-		border-bottom: 1px solid #fff
 		border-left: 1px solid #fff
 		border-right: 1px solid #fff
 		border-radius: 15px
@@ -2116,26 +2345,36 @@ html
 				border-radius: 15px 15px 0 0
 				border-bottom: none
 				span
-					background-color: $accent
-					border-color: $accent
-
-					&::before,
-						background-color: #ffffff
-
-					&::after
-						background-color: transparent
+					p
+						+rotate(225)
 
 			&__content
 				display: block
 				border-color: rgba(0,0,0, 0.5)
+				border-bottom: 1px solid #000
 				padding: 10px 20px
 				height: auto
 				border-radius: 0px 0px 15px 15px
 				background: #fff
 
 .partner
-	margin-top: 50px
-	margin-bottom: 50px
+	padding-top: 25px
+	padding-bottom: 195px
+	background: url(../img/bg-service.png)
+	background-position: bottom
+	background-repeat: no-repeat
+	background-size: cover
+	border-top: 5px solid $accent
+	z-index: 1
+
+	+r(1200)
+		padding-bottom: 140px
+
+	.digital__text
+		max-width: 37%
+
+		+r(992)
+			max-width: 100%
 
 	h3
 		font-size: 35px
@@ -2148,38 +2387,19 @@ html
 			font-size: 30px
 			margin-bottom: 20px
 
+	hr
+		width: 420px
+		background: rgba(255, 255, 255, 1)
+		border: none
+		height: 1px
+		margin-bottom: 15px
+
+		+r(992)
+			width: 60%
+
 	&__block
-		display: flex
-		gap: 50px
-		justify-content: space-between
-
-		+r(767)
-			flex-direction: column
-
-	&__text
-		max-width: 47%
-		font-size: 20px
-
-		+r(767)
-			max-width: 100%
-
-		+r(576)
-			font-size: 18px
-
-		p
-			margin-bottom: 15px
-
-	&__img
-		height: 300px
-		border-radius: 15px
-		overflow: hidden
-		width: 100%
-
 		img
 			width: 100%
-			height: 100%
-			object-fit: cover
-			object-position: top
 
 .review
 	padding-top: 50px
@@ -2191,6 +2411,9 @@ html
 		font-size: 45px
 		color: $accent
 		font-family: $f_title
+
+	&__container
+		padding: 0 45px
 
 	&__subtitle
 		text-align: center
@@ -2220,19 +2443,17 @@ html
 		+r(992)
 			flex-wrap: wrap
 
-	&__item
+	&__slide
 		display: flex
 		flex-direction: column
+		gap: 5px
 		align-items: center
 		text-align: center
 		padding: 20px
 		background: rgba(0, 0, 0, 0.9)
 		border-radius: 15px
+		height: auto
 		color: $accent
-		+transition
-
-		&:hover
-			+scale(1.1)
 
 		&_title
 			font-family: $f_title
@@ -2246,19 +2467,81 @@ html
 			border-radius: 15px
 			color: $accent
 
+	&__wrap
+		position: relative
+
+	&__slider
+		overflow: hidden
+
+	&__prev, &__next
+		display: block
+		width: 20px
+		height: 20px
+		position: absolute
+		z-index: 10
+		border-left: 2px solid #000
+		border-bottom: 2px solid #000
+		+transition
+
+		&:hover
+			border-color: $accent
+
+	&__prev
+		left: -30px
+		top: 50%
+		transform: translate(0,-50%)
+		+rotate(45)
+
+	&__next
+		right: -30px
+		top: 50%
+		transform: translate(0,-50%)
+		+rotate(225)
+
+.pay
+
+	&__container
+		border: 1px solid rgba(0,0,0,.5)
+		box-shadow: 5px 5px 10px rgba(0,0,0,.5)
+		padding-top: 5px
+		padding-bottom: 10px
+		border-radius: 25px
+		+transition
+
+		&:hover
+			box-shadow: 10px 10px 10px rgba(0,0,0,.5)
+			.answer__title
+				color: $accent
+			
+
+	.answer__title
+		color: $text
+		+transition
+
+	.answer--btn
+		color: #000
+		font-size: 16px
+		&:hover
+			color: #fff
+
 //----main-page---------
+
+.main
+	background: url(../img/bg-main.jpg)
+	background-repeat: no-repeat
+	background-size: cover
+	background-attachment: fixed
 
 .stat
 	padding-top: 10px
-	padding-bottom: 50px
+	padding-bottom: 160px
 
-	+r(767)
-		padding-bottom: 25px
+	+r(576)
+		padding-bottom: 120px
 
 	&__container
 		display: grid
 		grid-template-columns: 25% 25% 25% 25%
-		text-align: center
 
 		+r(1200)
 			grid-template-columns: 50% 50%
@@ -2268,11 +2551,15 @@ html
 
 	&__title
 		font-size: 25px
-		font-weight: 600
+		font-weight: 400
+		font-family: $f_title
 		margin-bottom: 15px
+		text-align: center
+		color: $accent
 
 	&__item
 		padding: 15px
+		color: #fff
 
 		+r(576)
 			padding: 10px
@@ -2280,26 +2567,32 @@ html
 	&__subtitle
 		opacity: 0.8
 		font-size: 18px
+		text-align: center
 
 	&__img
-		margin: 0 auto 15px auto
-		width: 150px
+		margin: 0 auto 0 auto
+		width: 200px
 
 		img
 			width: 100%
 
 .perference
-	padding-top: 50px
-	padding-bottom: 50px
-	background: url(../img/bg-arrow2.jpg)
-	background-color: rgba(0, 0, 0, 0.5)
-	background-position: center
-	background-attachment: fixed
-	background-blend-mode: soft-light
+	padding-top: 170px
+	padding-bottom: 100px
+	background: url(../img/perference-bg.png)
+	background-repeat: no-repeat
+	background-size: cover
+	background-position: top
+	position: relative
+	top: -160px
+	z-index: 2
 
 	+r(767)
 		padding-bottom: 25px
-		padding-top: 25px
+
+	+r(576)
+		top: -178px
+		padding-top: 220px
 
 	&__title
 		font-size: 35px
@@ -2309,9 +2602,11 @@ html
 		color: $accent
 		text-transform: uppercase
 
+	h2
+		color: rgba(246, 209, 118, 1)
+
 	&__subtitle
 		font-size: 20px
-		opacity: 0.5
 		text-align: center
 		margin-bottom: 25px
 
@@ -2321,17 +2616,34 @@ html
 
 	&__item
 		padding: 15px
-		background: #fff
-		border-radius: 15px
+		border: 1px solid #F7D176
+		border-radius: 11px
 
 		&_title
 			font-size: 25px
 			font-weight: 700
 			margin-bottom: 15px
-			color: $text
+			color: rgba(246, 209, 118, 1)
+			display: flex
+			align-items: center
+			gap: 25px
+
+			+r(576)
+				gap: 15px
+
+			span
+				font-size: 14px
+				width: 40px
+				height: 40px
+				display: block
+				background: url(../img/perference-circle.png)
+				display: flex
+				align-items: center
+				justify-content: center
+				flex-shrink: 0
 
 		&_text
-			opacity: 0.8
+			color: #fff
 
 	&__list
 		display: grid
@@ -2350,12 +2662,8 @@ html
 			gap: 20px
 
 .stage
-	padding-top: 50px
-	padding-bottom: 50px
-
-	+r(767)
-		padding-bottom: 25px
-		padding-top: 25px
+	position: relative
+	top: -90px
 
 	&__title
 		font-size: 35px
@@ -2372,80 +2680,66 @@ html
 		margin-bottom: 25px
 
 	&__item
-		position: relative
-		padding-bottom: 150px
+		display: flex
+		gap: 45px
+		align-items: center
 
 		+r(576)
-			padding-bottom: 185px
+			gap: 15px
+
+	&__wrap
+		display: flex
+		flex-direction: column
+		margin-left: 20%
+		gap: 35px
+
+		+r(1200)
+			margin-left: 10%
+
+		+r(767)
+			margin-left: 0
 
 	&__number
-		font-size: 20px
-		float: left
-		width: 25%
-		text-align: right
+		display: flex
+		flex-direction: column
+		font-size: 21px
 		font-weight: 700
 		font-family: $f_title
-		color: $accent
+		width: 125px
+		height: 125px
+		background: url(../img/stage-circle.png)
+		background-size: cover
+		display: flex
+		align-items: center
+		justify-content: center
+		padding-bottom: 15px
+		flex-shrink: 0
 
 		+r(576)
-			float: right
-			max-width: calc(100% - 80px)
-			width: 100%
-			text-align: left
-
-	&__text
-		float: right
-		width: 65%
-		color: rgba(0, 0, 0, 0.5)
-
-		+r(576)
-			max-width: calc(100% - 80px)
-			width: 100%
+			width: 80px
+			height: 80px
+			font-size: 14px
+			padding-bottom: 10px
 
 		span
-			font-size: 26px
-			margin-bottom: 10px
-			color: $text
+			font-size: 43px
+			position: relative
+			top: 15px
 
-	&__circle
-		width: 40px
-		height: 40px
-		background: #333
-		position: absolute
-		left: 30%
-		margin-left: -20px
-		border-radius: 50%
+			+r(576)
+				top: 10px
+				font-size: 26px
 
-		+r(576)
-			left: 8%
-
-		&::after
-			content: ''
-			width: 15px
-			height: 15px
-			position: absolute
-			background: #fff
-			border-radius: 50%
-			left: 50%
-			top: 50%
-			transform: translate(-50%, -50%)
-
-	&__line
-		position: absolute
-		top: 45px
-		left: 30%
-		height: calc(100% - 50px)
-		width: 1px
-		background: #333
-
-		+r(576)
-			left: 8%
+	&__text
+		p
+			&:first-child
+				font-size: 24px
+				font-weight: 700
+				color: $accent
+				margin-bottom: 5px
 
 .profi
-	padding-bottom: 50px
-
-	+r(767)
-		padding-bottom: 25px
+	padding-bottom: 25px
 
 	&__bg
 		padding: 100px 15px
@@ -2485,15 +2779,24 @@ html
 		border-radius: 25px 25px 25px 25px
 		box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5)
 		margin-bottom: 20px
+		background: #fff
 
 	&__block
+		display: flex
+		gap: 20px
 
+		+r(1200)
+			display: block
 
 		&_text
 			font-size: 18px
 
 			p
 				margin-bottom: 10px
+
+				span
+					color: $accent
+					font-weight: 700
 
 		&_bold
 			font-weight: 700
@@ -2514,8 +2817,10 @@ html
 			width: 100%
 			height: auto
 			border-radius: 15px
-			float: left
 			margin-right: 15px
+
+			+r(1200)
+				float: left
 
 			+r(576)
 				float: none
@@ -2540,13 +2845,30 @@ html
 			+r(767)
 				max-width: 100%
 
+	&__dots
+		p
+			display: flex
+			align-items: center
+			gap: 10px
+			&::before
+				content: ''
+				width: 10px
+				height: 10px
+				display: block
+				background: $accent
+				border-radius: 50%
+
 .expert
-	padding-top: 50px
-	padding-bottom: 50px
+	padding-top: 25px
+	padding-bottom: 20px
 
 	+r(767)
 		padding-bottom: 25px
 		padding-top: 25px
+
+	img
+		width: 100%
+		margin-bottom: 25px
 
 	.perference__title
 		margin-bottom: 15px
@@ -2562,7 +2884,7 @@ html
 	&__subtitle
 		text-align: center
 		opacity: 0.5
-		margin-bottom: 50px
+		margin-bottom: 25px
 
 	&__img
 		max-width: 40%
@@ -2597,97 +2919,73 @@ html
 
 .digital
 	padding-bottom: 50px
-
-	+r(767)
-		padding-bottom: 25px
+	padding-top: 50px
 
 	.perference__title
-		padding: 0 15px
+		margin-bottom: 50px
 
-	&__container
+	&__wrap
 		display: flex
 		justify-content: space-between
-		align-items: center
 		gap: 15px
 
 		+r(992)
 			flex-direction: column
-			gap: 30px
 
-	&__img
-		width: 80px
-		height: 80px
-		display: flex
-		justify-content: center
-		align-items: center
-		background: $accent
-		border-radius: 50%
-		position: relative
-		flex-shrink: 0
-
-		&::before
-			content: ""
-			display: block
-			width: 65px
-			height: 65px
-			border-radius: 50%
-			position: absolute
-			background: #f8f4f4
-			top: 50%
-			left: 50%
-			transform: translate(-50%, -50%)
-
-		img
-			height: 80%
-			width: 80%
-			z-index: 10
-
-	&__list
+	&__text
+		max-width: 32%
+		background: url(../img/bg-digital.jpg)
+		background-size: cover
+		padding: 50px 20px
+		border-radius: 25px
+		filter: drop-shadow(0px 0px 24px rgba(0, 0, 0, 0.25))
 		display: flex
 		flex-direction: column
-		gap: 90px
+		justify-content: center
+		gap: 10px
 
 		+r(992)
-			gap: 30px
+			max-width: 100%
 
-	&__item
-		display: flex
-		align-items: center
-		gap: 20px
-
-	&__content
-		display: flex
-		flex-direction: column
-		justify-content: center
-		gap: 20px
-
-		+r(576)
+		p
+			font-size: 22px
+			margin-bottom: 10px
+			display: flex
+			align-items: start
 			gap: 10px
+			&::before
+				margin-top: 7px
+				content: ''
+				width: 10px
+				height: 10px
+				display: block
+				background: $accent
+				border-radius: 50%
+				flex-shrink: 0
+
+			+r(992)
+				font-size: 18px
 
 		&_title
-			font-size: 25px
-
-			+r(992)
-				font-size: 20px
-
-		&_subtitle
-			opacity: 0.5
+			font-weight: 900
 			font-size: 20px
+			font-family: $f_title
+			margin-bottom: 10px
+			color: $accent
 
-			+r(992)
-				font-size: 16px
+	&__img
+		filter: drop-shadow(0px 0px 24px rgba(0, 0, 0, 0.25))
 
-	&__form
-		padding: 30px
-		box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5)
-		border-radius: 25px
-
-		+r(992)
+		img
 			width: 100%
-
+			height: 100%
+			border-radius: 25px
+			object-fit: cover
 //----content----
 
 .content
+	border-top: 4px solid $accent
+
 	.btn--form
 		max-width: 300px
 		margin: 30px auto 0px auto
@@ -2695,6 +2993,10 @@ html
 		&:hover
 			background: #fff
 			color: #000
+
+	.size-large
+		img
+			width: 100% !important
 
 	&__wrap
 		padding: 50px 80px
@@ -2727,13 +3029,9 @@ html
 		+r(992)
 			font-size: 25px
 
-	&__item
+	blockquote
 		border-left: 5px solid $accent
 		padding: 20px
-
-		img
-			width: 20px
-			margin-right: 5px
 
 	hr
 		height: 20px
@@ -2741,12 +3039,8 @@ html
 		background: $accent
 		border: none
 
-	&__number
-		padding: 1px 8px
-		background: $accent
-		color: #fff
-		border-radius: 5px
-		margin-right: 5px
+	ol
+		padding-left: 30px !important
 
 	&__bold
 		font-weight: 700
@@ -2769,14 +3063,80 @@ html
 		li
 			margin-bottom: 10px
 
+//----------form--------
+
+.btn--payer
+	border: none
+	background: transparent
+	width: 100%
+	font-size: 18px !important
+
+	&:hover
+		color: #fff !important
+
+.payment
+	display: none
+
+.nf-form-title
+	display: none
+
+.nf-field-label
+	display: none !important
+
+.nf-form-fields-required
+	text-align: center !important
+	margin-bottom: 15px
+
+.nf-response-msg
+	text-align: center !important
+
+.nf-field-element
+	input
+		padding: 20px 40px !important
+		height: 65px !important
+		border-radius: 50px !important
+		border: 2px solid $accent !important
+		font-size: 16px !important
+		background: #fff !important
+		color: $text !important
+
+		&::placeholder
+			color: rgba(0,0,0,0.5) !important
+
+	textarea
+		padding: 20px 40px !important
+		border-radius: 50px !important
+		border: 2px solid $accent !important
+		font-size: 16px !important
+		background: #fff !important
+		color: $text !important
+
+		&::placeholder
+			color: rgba(0,0,0,0.5) !important
+
+#nf-field-15, #nf-field-26, #nf-field-30
+	width: 100% !important
+	background: $accent !important
+	font-family: $f_title !important
+	font-weight: 700 !important
+
+#nf-field-12-container, #nf-field-16-container
+	margin-bottom: 15px !important
+
+.nf-form-content
+	max-width: 100% !important
+	padding: 0 !important
+
+
 //------vacancies-page---
 
 .vaca
-	margin-top: 50px
+	padding-top: 50px
 	margin-bottom: 50px
+	border-top: 4px solid $accent
 
 	+r(992)
-		margin-top: 25px
+		padding-top: 25px
 		margin-bottom: 25px
 
 	h2
@@ -2871,16 +3231,16 @@ html
 		&:hover
 			+scale(1.02)
 
-		&__title
-			font-weight: 700
-			font-size: 20px
-			font-family: $f_title
-
-		&__subtitle
+		p
 			font-weight: 200
 			font-size: 20px
+			color: #000
 
-		a
+		&__title
+			font-weight: 700 !important
+			font-family: $f_title
+
+		&__btn
 			position: absolute
 			right: 25px
 			top: 50%

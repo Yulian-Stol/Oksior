@@ -2,6 +2,20 @@
 
 document.addEventListener("DOMContentLoaded", function() {
 
+	//----------------------MENU_ACTIVE_LINK_JS----------------------
+	function shineLinks(id){
+		try{
+			let el = document.getElementById(id).getElementsByTagName('a');
+			let url = document.location.href;//палим текущий урл
+			for(let i=0;i<el.length; i++){
+				if (url==el[i].href){
+					el[i].className = 'active_menu';//если урл==текущий, добавляем класс
+				};
+			};
+		}catch(e){}
+	};
+	shineLinks('menu-header_menu');
+
 		//---------------slider--plan----------
 		var mySwiper = new Swiper('.company__slider', {
 			slidesPerView: 2,
@@ -34,6 +48,38 @@ document.addEventListener("DOMContentLoaded", function() {
 				1200: {
 					slidesPerView: 5,
 					spaceBetween: 120
+				},
+			}
+		});
+
+		//---------------slider--plan----------
+		var mySwiper = new Swiper('.review__slider', {
+			slidesPerView: 1,
+			spaceBetween: 10,
+			loop: true,
+			autoplay: {
+				delay: 3000,
+			},
+			navigation: {
+				nextEl: '.review__next',
+				prevEl: '.review__prev',
+			},
+			breakpoints: {
+				576: {
+					slidesPerView: 1,
+					spaceBetween: 10
+				},
+				767: {
+					slidesPerView: 2,
+					spaceBetween: 30
+				},
+				992: {
+					slidesPerView: 3,
+					spaceBetween: 30
+				},
+				1350: {
+					slidesPerView: 4,
+					spaceBetween: 30
 				},
 			}
 		});
