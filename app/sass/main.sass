@@ -2709,13 +2709,12 @@ html
 		font-family: $f_title
 		width: 125px
 		height: 125px
-		background: url(../img/stage-circle.png)
-		background-size: cover
 		display: flex
 		align-items: center
 		justify-content: center
 		padding-bottom: 15px
 		flex-shrink: 0
+		position: relative
 
 		+r(576)
 			width: 80px
@@ -2731,6 +2730,31 @@ html
 			+r(576)
 				top: 10px
 				font-size: 26px
+
+		b
+			content: url(../img/stage-circle.svg)
+			position: absolute
+			top: 0
+			left: 0
+			width: 125px
+			height: 125px
+			display: block
+
+			+r(576)
+				width: 80px
+				height: 80px
+
+	&__rotate
+		b
+			+rotate(90)
+
+		&:nth-child(3)
+			b
+				+rotate(180)
+
+		&:nth-child(4)
+			b
+				+rotate(270)
 
 	&__text
 		p
