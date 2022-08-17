@@ -3080,18 +3080,11 @@ html
 		+r(992)
 			font-size: 25px
 
-	blockquote
-		border-left: 5px solid $accent
-		padding: 20px
-
 	hr
 		height: 20px
 		width: 100%
 		background: $accent
 		border: none
-
-	ol
-		padding-left: 30px !important
 
 	&__bold
 		font-weight: 700
@@ -3108,11 +3101,29 @@ html
 			object-fit: cover
 
 	ul
-		list-style-type: disc
-		padding-left: 30px
-
 		li
 			margin-bottom: 10px
+			display: flex
+			align-items: center
+			gap: 10px
+
+			&::before
+				content: ''
+				width: 10px
+				height: 10px
+				background: $accent
+				display: block
+				border-radius: 50%
+
+	&__number
+		background: $accent
+		padding: 5px 10px
+		border-radius: 8px
+		margin-right: 10px
+
+	&__item
+		padding: 15px
+		border-left: 5px solid $accent
 
 //----------form--------
 
