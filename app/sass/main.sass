@@ -1681,11 +1681,14 @@ html
 		background-repeat: no-repeat
 		background-size: cover
 		flex-wrap: wrap
-		padding: 45px 65px 25px 65px
-		gap: 60px
+		padding: 10px 130px 25px 130px
+		gap: 10px
 
-		+r(992)
-			gap: 50px
+		+r(1200)
+			padding: 10px 60px 25px 60px
+
+		+r(576)
+			padding: 10px
 
 	.work__item_title
 		margin-bottom: 5px
@@ -1697,32 +1700,38 @@ html
 		flex-direction: column
 
 		&:nth-child(2n)
-			padding-top: 20px
+			padding-top: 30px
 
 			+r(767)
 				padding-top: 0
 
+		&:nth-child(6)
+			padding-top: 0
+
+			+r(1200)
+				padding-top: 30px
+
+			+r(767)
+				padding-top: 0
+
+		&:nth-child(5)
+			padding-top: 30px
+
+			+r(1200)
+				padding-top: 0
+
+		&:nth-child(7)
+			padding-top: 30px
+
+			+r(1200)
+				padding-top: 0
+
 	&__img
-		margin-bottom: 20px
-		padding: 10px
-		position: relative
 
 	&__image
-		width: 120px
-		height: 105px
+		width: 200px
+		height: 200px
 		object-fit: cover
-		border-radius: 45%
-		object-position: top
-
-	&__border
-		position: absolute
-		top: -45px
-		left: -62px
-		right: 0
-		bottom: 0
-		width: 260px
-		height: 205px
-
 //------blog-page----
 
 .type
@@ -2421,7 +2430,7 @@ html
 
 		+r(992)
 			max-width: 100%
-			
+
 
 .review
 	padding-top: 50px
