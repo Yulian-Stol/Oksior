@@ -1625,6 +1625,16 @@ html
 		.accordion
 			&__header
 				margin-bottom: 15px
+				margin-left: 420px
+
+				+r(1200)
+					margin-left: 415px
+
+				+r(992)
+					margin-left: 265px
+
+				+r(576)
+					margin-left: 0
 
 				span
 					background-color: $accent
@@ -2879,6 +2889,7 @@ html
 				display: block
 				background: $accent
 				border-radius: 50%
+				flex-shrink: 0
 
 .expert
 	padding-top: 25px
@@ -2955,7 +2966,7 @@ html
 			flex-direction: column
 
 	&__text
-		max-width: 43%
+		max-width: 33%
 		background: url(../img/bg-digital.jpg)
 		background-size: cover
 		padding: 50px 20px
@@ -2965,6 +2976,9 @@ html
 		flex-direction: column
 		justify-content: center
 		gap: 10px
+
+		+r(1200)
+			max-width: 40%
 
 		+r(992)
 			max-width: 100%
