@@ -32,6 +32,10 @@
 	.btn--about
 		color: $accent
 
+	+r(576)
+		padding-top: 30px
+		padding-bottom: 30px
+
 	img
 		height: 200px
 		position: absolute
@@ -51,7 +55,10 @@
 		+r(800)
 			height: 100px
 
-		+r(576)
+		+r(450)
+			height: 70px
+
+		+r(390)
 			display: none
 
 	&__title
@@ -65,6 +72,10 @@
 		+r(767)
 			font-size: 30px
 
+		+r(576)
+			margin-bottom: 15px
+			font-size: 21px
+
 	&__subtitle
 		font-size: 25px
 		text-align: center
@@ -73,6 +84,10 @@
 
 		+r(767)
 			font-size: 20px
+
+		+r(576)
+			font-size: 18px
+			margin-bottom: 20px
 
 	&--btn
 		margin: 0 auto
@@ -88,14 +103,20 @@
 		font-weight: 700
 		+transition
 
+		+r(576)
+			padding: 10px 20px
+
 		&:hover
 			background: $accent
 			color: #fff
 			box-shadow: 11px 11px 0px 0px rgba(255,255,255,0.15)
 
-
 		+r(767)
 			font-size: 20px
+
+	.btn
+		+r(767)
+			max-width: 50%
 
 .link
 	color: $accent
@@ -145,6 +166,7 @@
 
 	+r(576)
 		max-width: 100%
+		font-size: 15px
 
 	&:hover
 		border: 2px solid $accent
@@ -159,6 +181,13 @@
 
 	&--about
 		background: transparent
+
+		+r(576)
+			height: 45px
+
+	&--call
+		+r(576)
+			height: 45px
 
 	&--coop
 		background: #000
@@ -226,10 +255,14 @@ html
 	+r(767)
 		background: linear-gradient(rgba(255,255,255, 0.8) 0%, rgba(255,255,255, 0.8) 100%), url(../img/banner.jpg)
 		background-size: cover
-		padding-top: 280px
+		padding-top: 130px
 
 	+r(576)
-		padding-top: 250px
+		background: url(../img/banner.jpg)
+		background-size: cover
+		padding-top: 120px
+		padding-bottom: 0
+		// background-position: left
 
 	&__content
 		margin-left: 65%
@@ -244,6 +277,15 @@ html
 		+r(767)
 			margin: 0 auto
 
+		+r(576)
+			background: #fff
+			padding: 20px 30px
+			border-radius: 5px
+			box-shadow: 2px 1px 12px rgba(0, 0, 0, 0.25)
+			text-align: left
+			position: relative
+			bottom: -260px
+
 	&__subtitle
 		font-size: 38px
 		font-family: $f_title
@@ -255,6 +297,7 @@ html
 
 		+r(576)
 			margin-bottom: 10px
+			font-size: 25px
 
 	&__title
 		font-size: 100px
@@ -262,9 +305,16 @@ html
 		text-transform: uppercase
 		line-height: 1.1
 		margin-bottom: 10px
+		display: flex
+		flex-direction: column
 
 		+r(992)
 			font-size: 50px
+
+		+r(576)
+			font-size: 25px
+			flex-direction: row
+			gap: 5px
 
 		span
 			color: $accent
@@ -296,8 +346,10 @@ html
 	text-align: center
 
 	+r(767)
-		padding-top: 270px
+		padding-top: 150px
 		padding-bottom: 100px
+		background-position: left
+
 
 	h2
 		margin-bottom: 15px
@@ -329,6 +381,9 @@ html
 	background-position: center
 	background-blend-mode: soft-light
 	border-top: 5px solid $accent
+
+	+r(576)
+		display: none
 
 	&__container
 		display: flex
@@ -535,6 +590,30 @@ html
 			opacity: 0.5
 			margin-bottom: 20px
 
+	&__list-mobile
+		display: none
+
+		+r(576)
+			display: grid
+			padding: 15px
+			background: #FEFEFE
+			box-shadow: 1px 1px 12px 2px rgba(0, 0, 0, 0.1)
+			border-radius: 5px
+			grid-template-columns: 1fr 1fr
+			grid-row-gap: 15px
+			grid-column-gap: 30px
+			margin-bottom: 30px
+
+		&_item
+			padding: 20px 10px
+			box-shadow: 1px 1px 12px 2px rgba(0, 0, 0, 0.1)
+			border-radius: 5px
+			text-align: center
+			display: flex
+			align-items: center
+			justify-content: center
+
+
 .work
 	padding-top: 100px
 
@@ -635,6 +714,10 @@ html
 			margin-bottom: 20px
 			text-transform: uppercase
 
+			+r(576)
+				margin-bottom: 10px
+				font-size: 18px
+
 		&_text
 			opacity: 0.5
 			padding-left: 20px
@@ -651,6 +734,9 @@ html
 	padding-top: 50px
 	padding-bottom: 20px
 	border-top: 4px solid $accent
+
+	+r(576)
+		padding-top: 25px
 
 	h4
 		width: fit-content
@@ -671,9 +757,6 @@ html
 		flex-direction: column
 		color: #fff
 
-		+r(1200)
-			padding: 0 25px
-
 	&__wrap
 		display: flex
 		justify-content: space-between
@@ -685,6 +768,9 @@ html
 
 		+r(767)
 			flex-wrap: wrap
+
+		+r(576)
+			gap: 25px
 
 	&__contact
 		display: flex
@@ -731,6 +817,16 @@ html
 				&:hover
 					color: $accent
 
+.display--none
+	+r(576)
+		display: none !important
+
+.display--block
+	display: none
+
+	+r(576)
+		display: block !important
+
 // -----HAMBURGER-----
 .hamburger
 	display: none
@@ -775,6 +871,11 @@ html
 
 		+r(576)
 			transition-delay: 0.11s
+			top: 10px
+			right: 20px
+
+		+r(350)
+			right: 10px
 
 	&__item
 		position: absolute
@@ -850,9 +951,16 @@ html
 		background: rgba(215, 215, 215, 0.8)
 		border: none
 
+	&--none
+		+r(767)
+			display: none !important
+
 	&__top
 		+r(1200)
 			padding: 20px
+
+		+r(767)
+			padding: 0
 
 	&__soc
 		display: flex
@@ -878,10 +986,9 @@ html
 
 		+r(767)
 			flex-direction: column
+			align-items: start
 			gap: 10px
-
-		+r(576)
-			padding: 30px 15px
+			padding: 0
 
 	&__nav
 		+r(1200)
@@ -937,8 +1044,8 @@ html
 		font-family: $logo
 		color: $text
 
-		+r(400)
-			font-size: 30px
+		+r(576)
+			font-size: 25px
 
 		&:hover
 			color: $accent
@@ -977,6 +1084,9 @@ html
 
 				&:hover
 					color: $accent
+
+		&_size
+			font-size: 19px !important
 
 	&__svg
 		padding: 15px
@@ -1166,6 +1276,12 @@ html
 		border: 2px solid $accent
 		width: 100%
 
+		+r(576)
+			height: 50px
+			border-radius: 5px
+			border: none
+			box-shadow: 4px 3px 12px rgba(0, 0, 0, 0.1)
+
 		&::placeholder
 			line-height: 40px
 			font-size: 16px
@@ -1236,6 +1352,9 @@ html
 			font-size: 16px !important
 			max-width: 100% !important
 
+			+r(576)
+				max-width: 80% !important
+
 	&__error
 		position: absolute
 		bottom: -15px
@@ -1296,6 +1415,11 @@ html
 		border: 2px solid $accent
 		width: 100%
 
+		+r(576)
+			border-radius: 5px
+			border: none
+			box-shadow: 4px 3px 12px rgba(0, 0, 0, 0.1)
+
 .company
 	margin-top: 50px
 	margin-bottom: 50px
@@ -1314,6 +1438,10 @@ html
 		font-size: 40px
 		color: $accent
 		font-family: $f_title
+
+		+r(576)
+			font-size: 25px
+			margin-bottom: 25px
 
 	&__wrap
 		position: relative
@@ -1360,6 +1488,9 @@ html
 	background-size: cover
 	background-attachment: fixed
 
+	+r(576)
+		background: none
+
 .aboutMain
 	padding-top: 25px
 	padding-bottom: 200px
@@ -1370,6 +1501,10 @@ html
 	border-top: 4px solid $accent
 	z-index: 1
 
+	+r(576)
+		background: #fff
+		padding-bottom: 50px
+
 	hr
 		width: 420px
 		background: rgba(255, 255, 255, 1)
@@ -1379,6 +1514,9 @@ html
 
 		+r(992)
 			width: 60%
+
+		+r(576)
+			background: rgba(30, 30, 30, 1)
 
 	&__logo
 		text-align: center
@@ -1400,6 +1538,10 @@ html
 
 		+r(767)
 			margin-bottom: 35px
+			width: 100%
+
+		+r(576)
+			color: rgba(30, 30, 30, 1)
 
 		br
 			+r(767)
@@ -1417,10 +1559,18 @@ html
 		max-width: 300px
 		box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.2)
 
+		+r(576)
+			max-width: 100%
+			width: 100%
+			border-radius: 5px
+
 	&__text
 		padding: 20px
 		height: 100%
 		background: url(../img/about_text-bg.jpg)
+
+		+r(576)
+			background: #fff
 
 		h4
 			text-align: center
@@ -1447,6 +1597,11 @@ html
 	background-size: cover
 	background-attachment: fixed
 
+	+r(576)
+		background: none
+		top: 0
+		padding-top: 0px
+
 	h3
 		text-align: center
 		text-transform: uppercase
@@ -1456,9 +1611,29 @@ html
 
 		+r(576)
 			font-size: 30px
+			color: $accent
+			margin-bottom: 30px
 
 	.work__list
 		margin-bottom: 0
+
+	.work__item_text
+		+r(576)
+			opacity: 1
+
+	.work__item
+		+r(576)
+			box-shadow: 1px 1px 12px 2px rgba(0, 0, 0, 0.1)
+			padding: 0 20px 20px 20px
+			border-radius: 5px
+
+	.work__item_number
+		+r(576)
+			font-size: 50px
+
+	.work__item--margin
+		+r(576)
+			margin-bottom: 15px
 
 .access
 	margin-top: 50px
@@ -1472,6 +1647,9 @@ html
 
 		+r(767)
 			flex-direction: column
+
+		+r(576)
+			border-radius: 5px
 
 	&__img
 		width: 56%
@@ -1492,6 +1670,9 @@ html
 
 		+r(767)
 			width: 100%
+
+		+r(576)
+			padding: 15px
 
 	&__subtitle
 		font-family: $f_title
@@ -1515,9 +1696,15 @@ html
 		border-radius: 50px
 		font-size: 18px
 
+		+r(576)
+			border-radius: 5px
+
 .number
 	margin-top: 50px
 	margin-bottom: 100px
+
+	+r(576)
+		margin-bottom: 25px
 
 	h3
 		text-align: center
@@ -1528,15 +1715,16 @@ html
 		padding: 0 15px
 		opacity: 0.9
 
+		+r(576)
+			font-size: 25px
+			margin-bottom: 15px
+
 	&__container
 		display: grid
 		grid-template-columns: 25% 25% 25% 25%
 
 		+r(992)
 			grid-template-columns: 50% 50%
-
-		+r(576)
-			grid-template-columns: 100%
 
 	&__item
 		display: flex
@@ -1546,8 +1734,15 @@ html
 		opacity: 0
 		padding: 10px 15px
 
+		+r(576)
+			padding: 5px
+
 		p
 			font-size: 20px
+
+			+r(576)
+				font-size: 18px
+				text-align: center
 
 		&_wrap
 			display: flex
@@ -1559,11 +1754,17 @@ html
 				font-weight: 700
 				color: $accent
 
+				+r(576)
+					font-size: 40px
+
 		&_count
 			font-size: 80px
 			font-family: $f_title
 			font-weight: 700
 			color: $accent
+
+			+r(576)
+				font-size: 40px
 
 .accordion
 	margin-bottom: 10px
@@ -1646,6 +1847,9 @@ html
 	+r(767)
 		margin-top: 25px
 
+	+r(576)
+		margin-bottom: 0
+
 	h3
 		text-align: center
 		text-transform: uppercase
@@ -1657,6 +1861,7 @@ html
 		+r(576)
 			font-size: 30px
 			margin-bottom: 20px
+			margin-bottom: 95px
 
 	&__wrap
 		display: flex
@@ -1675,15 +1880,52 @@ html
 
 		+r(576)
 			padding: 10px
+			background: none
+			filter: none
 
 	.work__item_title
 		margin-bottom: 5px
+		
+		+r(576)
+			color: $accent
+			background: #fff
+			text-align: center
+
+	.work__item_text
+		+r(576)
+			text-align: center
+			opacity: 1
+
+	&__content
+		+r(576)
+			position: relative
+			top: -105px
+
+		hr
+			display: none
+			background: linear-gradient(270deg, #E2C02B 0%, rgba(226, 192, 43, 0) 100.59%)
+			height: 1px
+			border: none
+			width: 130px
+
+
+			+r(576)
+				display: block
 
 	&__item
 		max-width: 230px
 		display: flex
 		align-items: center
 		flex-direction: column
+
+		+r(576)
+			max-width: 100%
+			width: 100%
+			border: 1px solid $accent
+			box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1)
+			border-radius: 5px
+			height: 170px
+			margin-bottom: 80px
 
 		&:nth-child(2n)
 			padding-top: 30px
@@ -1712,12 +1954,14 @@ html
 			+r(1200)
 				padding-top: 0
 
-	&__img
-
 	&__image
 		width: 200px
 		height: 185px
 		object-fit: cover
+
+		+r(576)
+			position: relative
+			top: -93px
 //------blog-page----
 
 .type
@@ -1730,6 +1974,9 @@ html
 	border-top: 5px solid $accent
 	position: relative
 	z-index: 1
+
+	+r(576)
+		display: none
 
 	&__title
 		text-align: center
@@ -1784,8 +2031,7 @@ html
 	top: -90px
 
 	+r(576)
-		margin-top: 0
-		margin-bottom: 25px
+		display: none
 
 	h3
 		text-align: center
@@ -1874,6 +2120,61 @@ html
 
 		&:hover
 			background: transparent
+
+.blog-m
+	display: none
+	margin-top: 25px
+	margin-bottom: 25px
+
+	+r(576)
+		display: block
+
+		h3
+			text-align: center
+			text-transform: uppercase
+			font-family: $f_title
+			font-size: 50px
+			font-size: 30px
+			color: $accent
+			margin-bottom: 15px
+
+	&__container
+		display: flex
+		flex-direction: column
+		gap: 20px
+
+	&__item
+		position: relative
+		display: block
+		padding: 10px 15px
+		margin-bottom: 15px
+
+		img
+			position: absolute
+			width: 100%
+			height: 100%
+			object-fit: cover
+			border-radius: 5px
+			top: 0
+			bottom: 0
+			left: 0
+			right: 0
+			z-index: -1
+
+	&__title
+		font-family: $f_title
+		font-weight: 700
+		color: #fff
+		margin-bottom: 20px
+		text-transform: uppercase
+
+	&__read
+		margin-left: auto
+		background: $accent
+		color: $text
+		width: fit-content
+		padding: 5px 15px
+		border-radius: 5px
 //-----contact-----
 
 .line
@@ -1911,6 +2212,11 @@ html
 	background-size: cover
 	border-top: 5px solid $accent
 	z-index: 1
+
+	+r(576)
+		background: none
+		padding-top: 25px
+		padding-bottom: 25px
 
 	&__text
 		font-size: 25px
@@ -2043,6 +2349,12 @@ html
 		p
 			color: #fff
 
+			+r(576)
+				color: #000
+				font-weight: 700
+				font-size: 16px
+
+
 	&__img
 		width: 150px
 		height: 150px
@@ -2081,6 +2393,9 @@ html
 
 	+r(576)
 		margin-bottom: 25px
+		background: none
+		top: 0
+		padding-top: 0
 
 	.active
 		background: $accent
@@ -2143,11 +2458,17 @@ html
 		position: relative
 		background: #fff
 
+		+r(576)
+			background: #F8F5F5
+
 		&:first-child
 			border-radius: 25px 0 0 0
 
 			+r(767)
-				border-radius: 25px 25px	 0 0
+				border-radius: 25px 25px 0 0
+
+			+r(576)
+				border-radius: 5px 5px 0 0
 
 		&:last-child
 			border-radius: 0 0 0 25px
@@ -2188,6 +2509,10 @@ html
 			height: 300px
 			border-radius: 0 0 25px 25px
 
+		+r(576)
+			border-radius: 0 0 5px 5px
+			height: 240px
+
 		iframe
 			width: 100%
 			height: 100%
@@ -2205,6 +2530,9 @@ html
 		font-weight: 700
 		margin-bottom: 30px
 
+		+r(576)
+			margin-bottom: 10px
+
 //---service--page---
 
 .services
@@ -2215,6 +2543,11 @@ html
 	background-size: cover
 	background-attachment: fixed
 	top: -90px
+
+	+r(576)
+		background: none
+		top: 0
+		padding-top: 0
 
 	&__list
 		display: flex
@@ -2266,6 +2599,9 @@ html
 		+r(767)
 			max-width: 100%
 
+		+r(576)
+			border-radius: 5px
+
 		img
 			width: 100%
 			height: 100%
@@ -2279,9 +2615,18 @@ html
 			font-weight: 700
 			color: $accent
 
+			+r(576)
+				text-align: center
+				font-size: 25px
+
 		&_subtitle
 			opacity: 0.5
 			font-size: 20px
+
+			+r(576)
+				text-align: center
+				opacity: 1
+				font-size: 18px
 
 .accordionr
 	margin-bottom: 10px
@@ -2394,6 +2739,10 @@ html
 	+r(1200)
 		padding-bottom: 140px
 
+	+r(576)
+		background: none
+		padding-bottom: 50px
+
 	h3
 		font-size: 35px
 		font-family: $f_title
@@ -2428,7 +2777,6 @@ html
 		+r(992)
 			max-width: 100%
 
-
 .review
 	padding-top: 50px
 	padding-bottom: 50px
@@ -2440,6 +2788,10 @@ html
 		color: $accent
 		font-family: $f_title
 
+		+r(576)
+			font-size: 25px
+			margin-bottom: 10px
+
 	&__container
 		padding: 0 45px
 
@@ -2448,6 +2800,10 @@ html
 		font-size: 20px
 		margin-bottom: 30px
 		opacity: 0.5
+
+		+r(576)
+			font-size: 18px
+			opacity: 1
 
 	&__img
 		width: 125px
@@ -2482,17 +2838,29 @@ html
 		height: auto
 		color: $accent
 
+		+r(576)
+			border-radius: 5px
+			background: #fff
+			border: 1px solid #000
+
 		&_title
 			font-family: $f_title
 			font-weight: 700
 			font-size: 20px
 			margin-bottom: 15px
 
+			+r(576)
+				margin-bottom: 0
+
 		&_subtitle
 			background: rgba(255,255,255, 0.1)
 			padding: 10px
 			border-radius: 15px
 			color: $accent
+
+			+r(576)
+				color: #000
+				padding: 0
 
 	&__wrap
 		position: relative
@@ -2535,11 +2903,14 @@ html
 		border-radius: 25px
 		+transition
 
+		+r(576)
+		 border-radius: 5px
+
 		&:hover
 			box-shadow: 10px 10px 10px rgba(0,0,0,.5)
 			.answer__title
 				color: $accent
-			
+
 
 	.answer__title
 		color: $text
@@ -2558,6 +2929,9 @@ html
 	background-repeat: no-repeat
 	background-size: cover
 	background-attachment: fixed
+
+	+r(576)
+		background: none
 
 .stat
 	padding-top: 10px
@@ -2623,8 +2997,7 @@ html
 		padding-bottom: 25px
 
 	+r(576)
-		top: -178px
-		padding-top: 220px
+		display: none
 
 	&__title
 		font-size: 35px
@@ -2636,6 +3009,9 @@ html
 
 		+r(992)
 			font-size: 25px
+
+		+r(576)
+			margin-bottom: 20px
 
 	h2
 		color: rgba(246, 209, 118, 1)
@@ -2700,6 +3076,9 @@ html
 	margin-bottom: 50px
 	position: relative
 	top: -20px
+
+	+r(576)
+		top: 0
 
 	&__title
 		font-size: 35px
@@ -2798,6 +3177,10 @@ html
 				color: $accent
 				margin-bottom: 5px
 
+				+r(576)
+					color: #000
+					font-size: 20px
+
 .profi
 	padding-bottom: 25px
 
@@ -2819,9 +3202,16 @@ html
 			color: #fff
 			opacity: 1
 
+		+r(576)
+			padding: 25px
+
 	&__accordion
 		padding-top: 50px
 		margin-bottom: 50px
+
+		+r(576)
+			padding-top: 25px
+			margin-bottom: 25px
 
 	&__header
 		font-size: 20px
@@ -2836,10 +3226,16 @@ html
 
 	&__item
 		padding: 10px 30px
-		border-radius: 25px 25px 25px 25px
+		border-radius: 25px
 		box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5)
 		margin-bottom: 20px
 		background: #fff
+
+		+r(576)
+			border-radius: 5px
+
+		+r(400)
+			padding: 10px
 
 	&__block
 		display: flex
@@ -2893,9 +3289,6 @@ html
 		+r(992)
 			flex-direction: row
 
-		+r(480)
-			flex-direction: column
-
 		div
 			max-width: 25%
 
@@ -2926,6 +3319,9 @@ html
 	+r(767)
 		padding-bottom: 25px
 		padding-top: 25px
+
+	+r(576)
+		display: none
 
 	img
 		width: 100%
@@ -2982,6 +3378,10 @@ html
 	padding-bottom: 50px
 	padding-top: 75px
 
+	+r(576)
+		padding-top: 25px
+		padding-bottom: 25px
+
 	&__wrap
 		display: flex
 		justify-content: space-between
@@ -3012,6 +3412,10 @@ html
 
 		+r(992)
 			max-width: 100%
+
+		+r(576)
+			background: #FEFEFE
+			border-radius: 5px
 
 		p
 			font-size: 22px
@@ -3052,9 +3456,28 @@ html
 			border-radius: 25px
 			object-fit: cover
 
+			+r(576)
+				border-radius: 5px
+
+	&--mobile
+		+r(576)
+			display: none
+
+	&--reverse
+		+r(576)
+			flex-direction: column-reverse
+
+	&--block
+		+r(576)
+			padding-top: 315px
+
 .select
 	position: relative
 	top: -95px
+
+	&--none
+		+r(576)
+			display: none
 
 	hr
 		width: 100%
@@ -3088,7 +3511,8 @@ html
 
 		+r(576)
 			max-width: 100%
-
+			background: #fff
+			border-radius: 5px
 
 	&__title
 		font-family: $f_title
@@ -3100,6 +3524,10 @@ html
 		font-size: 16px
 		line-height: 120%
 
+		br
+			+r(576)
+				display: none
+
 	&__img
 		height: 146px
 		display: flex
@@ -3109,11 +3537,17 @@ html
 	position: static
 	margin-top: 75px
 
+	+r(576)
+		margin-top: 0
+
 	.select__img
 		height: 167px
 
 .garant
 	margin-top: 30px
+
+	+r(576)
+		display: none
 
 	.perference__title
 		margin-bottom: 20px
@@ -3184,6 +3618,9 @@ html
 
 .sele
 	margin-bottom: 50px
+
+	+r(576)
+		display: none
 
 	&__content
 		background: url(../img/bg-stage.jpg)
@@ -3437,6 +3874,12 @@ html
 		+r(767)
 			padding: 10px 120px 10px 10px
 
+		+r(576)
+			background: #FEFEFE
+			box-shadow: 4px 3px 12px rgba(0, 0, 0, 0.1)
+			border-radius: 5px
+			border: none
+
 		&:hover
 			+scale(1.02)
 
@@ -3444,6 +3887,9 @@ html
 			font-weight: 200
 			font-size: 20px
 			color: #000
+
+			+r(576)
+				font-size: 16px
 
 		&__title
 			font-weight: 700 !important
@@ -3466,6 +3912,10 @@ html
 				right: 10px
 				max-width: 100px
 				gap: 0
+
+			+r(576)
+				height: 35px
+				border-radius: 5px
 
 			svg
 				+transition
