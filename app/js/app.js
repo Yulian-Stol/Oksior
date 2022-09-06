@@ -16,6 +16,22 @@ document.addEventListener("DOMContentLoaded", function() {
 	};
 	shineLinks('menu-header_menu');
 
+	//---------------slider--plan----------
+	if (document.documentElement.clientWidth < 576) {
+		var mySwiper = new Swiper('.mob__slider', {
+			slidesPerView: 1,
+			spaceBetween: 10,
+			loop: true,
+			autoplay: {
+				delay: 3000,
+			},
+			navigation: {
+				nextEl: '.mob__next',
+				prevEl: '.mob__prev',
+			},
+		});
+	};
+
 		//---------------slider--plan----------
 		var mySwiper = new Swiper('.company__slider', {
 			slidesPerView: 2,
